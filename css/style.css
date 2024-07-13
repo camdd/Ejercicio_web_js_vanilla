@@ -1,0 +1,267 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+/* ESTILOS GENERALES */
+* {
+    background-color: #F5F5F5;
+    color: #173989;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+
+/*NAVBAR*/
+.logo {
+    background-color: #F5F5F5; 
+}
+
+.menu {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 500;
+}
+
+nav {
+    background-color: #F5F5F5;
+}
+
+.menu-option {
+    background-color: #F5F5F5;
+}
+
+.links {
+   color: #173989
+}
+/* MAIN */
+main {
+    flex: 1;
+}
+
+.header {
+    display: flex;
+    padding: 2.5rem;
+    font-size:5rem;
+    font-family: 'Chivo';
+    font-weight: 400;
+    line-height: 142.5%;
+}
+
+.ocean {
+    display: flex;
+    font-size: 2.5rem;
+    padding: 2.5rem;
+    width: 50%;
+    font-family: 'Chivo';
+    font-weight: 400;
+    line-height: 138.5%;
+}
+
+/* CHECKBOX Y SEARCH BAR */
+.barraCheck {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    justify-content: center;
+    align-items: baseline;
+}
+
+.checkbox {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    align-items: baseline;
+    text-transform: uppercase;
+}
+
+/* SOBRE OCEAN */
+
+.aboutOcean {
+display: flex;
+padding: 2.5rem;
+font-family: 'Chivo';
+font-size: 1.5rem;
+line-height: 138.5%;
+background-color: transparent;
+}
+
+.onu {
+margin-left: 2.5rem;
+font-family: 'Chivo';
+font-size: 1.15rem;
+color: #576B9A;
+background-color: transparent;
+}
+
+.aboutASD {
+display: flex;
+flex-direction: column;
+align-items: center;
+font-family: 'Chivo';
+font-size: 2.5rem;
+line-height: 142.5%;
+margin-bottom: 1.1rem;
+background-color: transparent;
+}
+
+.videoCEA {
+    padding: 2.5rem;
+    margin: auto;
+    background-color: transparent;
+}
+
+.vista-ocean {
+    position: relative;
+    z-index: 1;
+}
+
+.vista-ocean::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url('../img/olas_bottom_1.png');
+    background-size: cover;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    z-index: -1;
+}
+
+/* CARDS */
+.container {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem;
+    flex-wrap: wrap;
+    margin: 0 auto;
+}
+
+.border {  height: 369px;
+    width: 290px;
+    background: transparent;
+    border-radius: 10px;
+    transition: border 1s;
+    position: relative;
+
+}
+
+.card {  
+    height: 379px;
+    width: 300px;
+    background: #6E7DA2 !important;
+    border-radius: 10px !important;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.card-body, .card-title, .card-text {
+    color: #AEDADD;
+    background-color: #6E7DA2 !important;
+    font-family: 'Lato', sans-serif;
+    padding: 0.5rem;
+}
+
+.card-title{
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+.card_img {
+    width: 100%;
+}
+
+.title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card a {
+    color: #AEDADD
+}
+
+
+/* FOOTER */
+footer {
+    background-color: #DB996C;
+    padding: 2rem;
+    color:#FFFFFF;
+    text-decoration: none !important;    
+}
+
+.navbar__items {
+    background-color: #DB996C;
+    display: flex;
+    justify-content:start;
+    gap: 1rem;
+    align-items:center;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 500
+}
+
+.navbar__item, .social {
+    background-color: #DB996C !important;
+}
+
+/* CONTACT */
+.form-group, .stats-table {
+    display: flex;
+    flex-wrap: wrap;
+    width: 70%;
+    margin: auto;
+    margin-top: 3rem;
+    font-family: 'Raleway', sans-serif;
+}
+
+.submit-button {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+
+/* DETAILS */
+.details {
+    background-color:white;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border:#A459D1 1px solid;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    padding: 1rem;
+    gap: 2rem;
+    width: 60%;
+    margin: auto;
+    margin-top: 5%;
+}
+.imagen {
+    width: 40%;
+}
+
+.descripcion {
+    font-family: 'Lato', sans-serif;
+    border:#A459D1 1px solid;
+    padding: 2rem;
+    width: 40%;
+    background-color:white;
+}
+
+.details1{
+    background-color:white;
+    display: flex;
+    justify-content: center;
+}
+
+
+
+

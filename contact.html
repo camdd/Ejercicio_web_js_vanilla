@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav class="flex items-center relative justify-between px-5 py-6 w-full">
+      <div>
+          <img class="logo" src="./img/oceanLogo.png">
+      </div>
+      <ul id="drawer" role="menu" class="sm:gap-3 transition-left ease-[cubic-bezier(0.4, 0.0, 0.2, 1)] delay-150  sm:flex  flex flex-col cursor-pointer absolute min-h-screen -left-48 sm:static w-48 top-0 sm:shadow-none shadow-xl sm:bg-transparent sm:flex-row sm:w-auto sm:min-h-0 menu ">
+        <div class="sm:hidden p-6 mb-5 flex items-center justify-center">
+        </div>
+        <li class="text-lg p-3 sm:p-0 sm:hover:bg-transparent text-primary menu-option">
+          <a href="index.html" class="links">INICIO</a>
+        </li>
+        <li class="text-lg p-3 sm:p-0 sm:hover:bg-transparent text-primary menu-option">
+          <a href="que-es-ocean.html" class="links">¿QUÉ ES OCEAN?</a>
+        </li>
+        <li class="text-lg p-3 sm:p-0 sm:hover:bg-transparent text-primary menu-option">
+          <a href="emprendedores.html" class="links">EMPRENDEDORES</a>
+        </li>
+        <li class="text-lg p-3 sm:p-0 sm:hover:bg-transparent text-primary menu-option">
+          <a href="contact.html" class="links">CONTACTO</a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <div class="header">CONTACT US</div>
+
+    <main>
+      <form>
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Name</label>
+          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Juan Pérez">
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Email address</label>
+          <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+        </div>
+        <div class="form-group">
+          <label for="exampleFormControlTextarea1">Message</label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Déjanos tu comentario aquí"></textarea>
+        </div>
+        <div class="submit-button">
+          <button type="button" class="btn btn-light">Submit</button>
+        </div>
+      </form>
+    </main>
+    
+    
+    <!-- FOOTER -->
+    <footer class="footer">
+      <ul class="navbar__items">
+        
+          <li class="navbar__item">
+              <a class="navbar__link" href="https://www.instagram.com/"> <img class="social" src="./img/instagram.png" alt=""></a>
+          </li>
+          <li class="navbar__item">
+              <a class="navbar__link" href="https://www.facebook.com/"> <img class="social" src="./img/facebook.png" alt=""> </a>
+          </li>
+          <li class="navbar__item">
+              <a class="navbar__link" href="https://twitter.com/home"><img src="./img/x.png" class="social" alt=""> </a>
+          </li>
+      </ul>
+      </nav>
+  </footer>
+
+</body>
+</html>
