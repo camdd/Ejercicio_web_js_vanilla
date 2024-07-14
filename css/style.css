@@ -18,7 +18,7 @@ body {
 
 /*NAVBAR*/
 .logo {
-    background-color: #F5F5F5; 
+    background-color: transparent; 
 }
 
 .menu {
@@ -30,9 +30,6 @@ nav {
     background-color: #F5F5F5;
 }
 
-.menu-option {
-    background-color: #F5F5F5;
-}
 
 .links {
    color: #173989
@@ -128,6 +125,8 @@ background-color: transparent;
 }
 
 .vista-ocean {
+    background: rgb(174,218,221);
+    background: linear-gradient(0deg, rgba(174,218,221,1) 0%, rgba(227,238,236,1) 90%, rgba(245,245,245,1) 100%);
     position: relative;
     z-index: 1;
 }
@@ -146,6 +145,7 @@ background-color: transparent;
 
 
 .vista-home {
+    background-color: #F5F5F5;
     position: relative;
     z-index: 1;
 }
