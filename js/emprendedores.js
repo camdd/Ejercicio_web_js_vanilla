@@ -1,108 +1,101 @@
-
 let container = document.getElementById("container")
 let btnSearch = document.getElementById("btn_search")
 let inputSearch = document.getElementById("input_search")
 let searchForm = document.getElementById("searchForm")
-let events = []
-let allEvents = []
+let results = []
+let allResults = []
 
-async function cargarEventos() {
+async function cargarResultados() {
     try {
-        const response = await axios.get("https://mindhub-xj03.onrender.com/api/amazing")
-        console.log(response.data.events)
-        events = response.data.events
-        allEvents = [...events]
-        dibujarEventos(events, container)
+        const response = await axios.get("https://randomuser.me/api/?results=15")
+        results = response.data.results
+        allResults = [...results]
+        drawResults(results, container)
     } catch (err) {
         console.log("Error: " + err.message)
     }
 }
 
 async function ejecutarDibujado() {
-    await cargarEventos()
-    createSearchListener(searchForm, events, container)
-    createInputListener(searchForm, events, container)
-    handleCategoryFilter(events)
+    await cargarResultados()
+    createSearchListener(searchForm, results, container)
+    createInputListener(inputSearch, container)
+    handleCategoryFilter(results)
 }
-
 
 ejecutarDibujado()
 
-
-let dibujarEventos = (array, container) => {
+function drawResults(array, container) {
     container.innerHTML = ""
-    
-    array.forEach((event) => {
-
-        if (event.assistance !== undefined) {
-            container.innerHTML += `
-                <div id="card" class="card" style="width: 18rem;">
-                    <img class="card_img" src="${event.image}">
-                    <h5 class="card-title"> ${event.name} </h5>
-                    <p class="card-text">${event.description}</p>
-                    <div class="card-body">
-                        <a id="price" href="#" class="card-link">Price: $${event.price}</a>
-                        <a href="./details.html" class="card-link">Details</a>
-                    </div>
+    array.forEach((result) => {
+        container.innerHTML += `
+            <div id="card" class="card border" style="width: 18rem;">
+                <img class="card_img" src="${result.picture.large}">
+                <h5 class="card-title"> ${result.name.first} ${result.name.last} </h5>
+                <p class="card-text">emprendedor/a</p>
+                <p class="card-text">${result.location.city}, ${result.location.state}, ${result.location.country}</p>
+                <div class="card-body">
+                    <a id="price" href="#" class="card-link">Contacto: ${result.cell}</a>
+                    <a href="./details.html" class="card-link">Details</a>
                 </div>
+            </div>
             `
-        }
     })
 }
 
-//Creo un filtro para la barra de búsqueda
-let createSearchListener = (searchForm, events, container) => {
+function createSearchListener(searchForm, results, container) {
     searchForm.addEventListener("submit", (e) => {
         e.preventDefault()
-        let eventName = inputSearch.value
+        let resultName = inputSearch.value.toLowerCase()
     
-        let eventsFilter = events.filter(
-            (event)=>event.name.toLowerCase().includes(eventName.toLowerCase())
+        let resultsFilter = results.filter(
+            (result) => result.name.first.toLowerCase().includes(resultName) || result.name.last.toLowerCase().includes(resultName)
         )
     
-        if(eventsFilter.length===0){
-            dibujarEventos(events, container)
+        if(resultsFilter.length === 0){
+            drawResults(results, container)
         } else {
-            dibujarEventos(eventsFilter, container)
+            drawResults(resultsFilter, container)
         }
     })
 }
 
-
-//a ese filtro le implemento la posibilidad de mostrar el contenido conforme se va tipeando en el input
-let createInputListener = (searchForm, events, container) => {
-    inputSearch.addEventListener("input", ()=> {
-        let eventName = inputSearch.value
+function createInputListener(inputSearch, container) {
+    inputSearch.addEventListener("input", () => {
+        let resultName = inputSearch.value.toLowerCase()
     
-        let eventsFilter = events.filter ((event) =>
-        event.name.toLowerCase().includes(eventName.toLowerCase()))
+        let resultsFilter = results.filter((result) =>
+            result.name.first.toLowerCase().includes(resultName) || result.name.last.toLowerCase().includes(resultName)
+        )
         
-        if (eventName ==="") {
-            dibujarEventos(events, container)
+        if (resultName === "") {
+            drawResults(results, container)
         } else {
-            dibujarEventos(eventsFilter, container)
+            drawResults(resultsFilter, container)
         }
     })
 }
 
-function handleCategoryFilter(events) {
-    // Agrega un event listener para los checkboxes
+function handleCategoryFilter(results) {
     const checkboxes = document.querySelectorAll(".category-filter")
     checkboxes.forEach((checkbox) => {
         checkbox.addEventListener("change", () => {
-            const selectedCategories = Array.from(checkboxes)
+            const selectedValues = Array.from(checkboxes)
                 .filter((checkbox) => checkbox.checked)
                 .map((checkbox) => checkbox.value)
 
-            if (selectedCategories.length === 0) {
-                // Si no hay categorías seleccionadas, muestra todos los eventos sin filtrar
-                dibujarEventos(allEvents, container)
-            } else {
-                // Filtra los eventos por categoría
-                const eventsFilter = events.filter((event) => {
-                    return selectedCategories.includes(event.category)
+            let resultsFilter = results
+
+            if (selectedValues.length > 0) {
+                resultsFilter = resultsFilter.filter((result) => {
+                    return selectedValues.includes(result.location.country) || selectedValues.includes(result.gender)
                 })
-                dibujarEventos(eventsFilter, container)
+            }
+
+            if (selectedValues.length === 0) {
+                drawResults(allResults, container)
+            } else {
+                drawResults(resultsFilter, container)
             }
         })
     })
