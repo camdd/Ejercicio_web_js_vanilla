@@ -34,10 +34,7 @@ function drawResults(array, container) {
                 <h5 class="card-title"> ${result.name.first} ${result.name.last} </h5>
                 <p class="card-text">emprendedor/a</p>
                 <p class="card-text">${result.location.city}, ${result.location.state}, ${result.location.country}</p>
-                <div class="card-body">
-                    <a id="price" href="#" class="card-link">Contacto: ${result.cell}</a>
-                    <a href="./details.html" class="card-link">Details</a>
-                </div>
+
             </div>
             `
     })
