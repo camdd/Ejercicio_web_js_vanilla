@@ -263,29 +263,103 @@ background-color: transparent;
 .contact-content {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh; 
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 20%; 
+    background: rgb(174,218,221);
+    background: linear-gradient(0deg, rgba(174,218,221,1) 0%, rgba(174,218,221,1) 85%, rgba(10,161,221,1) 100%);
+    position: relative;
+    z-index: 1;
+
 }
 
-.contact-form {
-    display: flex;
-    flex-direction: column; 
+
+.contact-content::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url('../img/olas_bottom_3.png');
+    background-size: cover;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    z-index: -1;
 }
 
 .contact-us {
-display: flex;
-width: 35%;
-font-family: 'Chivo';
-font-size: 2.8rem;
-line-height: 142.5%;
+    background: transparent;
+    width: 45%;
+    font-family: 'Chivo';
+    font-size: 2.8rem;
+    margin-right: 5rem;
+    margin-top: 5%;
 }
 
-.rect-nombre, .rect-email, .rect-msg{
-width: 30%;
-background: #E8F9FD;
-box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
-margin-bottom: 1rem;
+.form-container {
+    margin-top: 7%;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 
+.contact-form {
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 600px;
+}
+
+.rect-nombre, .rect-email, .rect-msg {
+    width: 100%;
+    background: #E8F9FD;
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    margin-bottom: 1rem;
+}
+
+.submit-button {
+    display: flex;
+    justify-content: center;
+    width: 35%;
+    border-radius: 5px;
+}
+
+.submit-button button {
+    width: 100%;
+    max-width: 200px; 
+}
+
+.vias-contacto, .email, .instagram, .telefono {
+    font-family: 'Chivo';
+    background: transparent;
+}
+
+
+.vias-contacto {
+    margin-top: 2%;
+    font-size: 1.75rem;
+}
+
+.email, .instagram, .telefono {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+}
+
+.thank-you {
+    background: transparent;
+    font-family: 'Chivo';
+    margin-top: 5%;
+    font-size: 1.2rem;
+    font-weight: 600;
+    line-height: 124.5%;
+    text-align: center;
+    text-transform: uppercase;
+}
 
 
 /* FOOTER */
